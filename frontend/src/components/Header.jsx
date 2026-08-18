@@ -17,10 +17,10 @@ function NavLink({ label, to, onClick }) {
     <Link
       to={to}
       onClick={onClick}
-      className="group relative py-2 text-sm font-medium tracking-wide text-white/80 transition-colors duration-300 hover:text-white"
+      className="group relative py-2 text-sm font-medium tracking-wide text-white/80 transition-colors duration-200 hover:text-white"
     >
       {label}
-      <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-agency-accent transition-transform duration-300 ease-agency-ease group-hover:scale-x-100" />
+      <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-agency-accent transition-transform duration-200 ease-agency-ease group-hover:scale-x-100" />
     </Link>
   );
 }
@@ -30,16 +30,16 @@ function ServicesNavItem() {
     <div className="group/services relative py-2">
       <Link
         to="/#services"
-        className="flex items-center gap-1 text-sm font-medium tracking-wide text-white/80 transition-colors duration-300 hover:text-white"
+        className="flex items-center gap-1 text-sm font-medium tracking-wide text-white/80 transition-colors duration-200 hover:text-white"
       >
         Services
         <ChevronDown
           size={14}
-          className="transition-transform duration-300 ease-agency-ease group-hover/services:rotate-180"
+          className="transition-transform duration-200 ease-agency-ease group-hover/services:rotate-180"
         />
       </Link>
 
-      <div className="invisible absolute left-1/2 top-full z-20 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-300 ease-agency-ease group-hover/services:visible group-hover/services:opacity-100">
+      <div className="invisible absolute left-1/2 top-full z-20 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 ease-agency-ease group-hover/services:visible group-hover/services:opacity-100">
         <div className="overflow-hidden rounded-2xl border border-white/10 bg-agency-surface/95 p-2 shadow-2xl backdrop-blur-xl">
           {servicesData.map((service) => {
             const Icon = service.icon;
@@ -47,12 +47,12 @@ function ServicesNavItem() {
               <Link
                 key={service.id}
                 to={`/services/${service.id}`}
-                className="group/item flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors duration-200 hover:bg-white/5"
+                className="group/item flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors duration-150 hover:bg-white/5"
               >
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-agency-orange/15 text-agency-orange">
                   <Icon size={16} />
                 </span>
-                <span className="text-sm font-medium text-white/80 transition-colors duration-200 group-hover/item:text-white">
+                <span className="text-sm font-medium text-white/80 transition-colors duration-150 group-hover/item:text-white">
                   {service.title}
                 </span>
               </Link>
@@ -83,7 +83,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-agency-ease ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-agency-ease ${
         scrolled
           ? "bg-agency-bg/80 py-3 backdrop-blur-lg border-b border-white/10"
           : "bg-transparent py-6 border-b border-transparent"
@@ -108,12 +108,12 @@ export default function Header() {
         <div className="hidden lg:block">
           <Link
             to="/#contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium transition-all duration-300 ease-agency-ease hover:border-agency-accent hover:bg-agency-accent hover:text-agency-bg"
+            className="group inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium transition-all duration-200 ease-agency-ease hover:border-agency-accent hover:bg-agency-accent hover:text-agency-bg"
           >
             Let's Talk
             <ArrowUpRight
               size={16}
-              className="transition-transform duration-300 ease-agency-ease group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="transition-transform duration-200 ease-agency-ease group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </Link>
         </div>
@@ -135,7 +135,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden border-t border-white/10 bg-agency-bg lg:hidden"
           >
             <nav className="flex flex-col gap-1 px-6 py-6">
@@ -164,7 +164,7 @@ export default function Header() {
                   key={link.label}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.3 }}
+                  transition={{ delay: i * 0.05, duration: 0.25 }}
                 >
                   <Link
                     to={link.to}

@@ -4,9 +4,9 @@ import profilePhoto from "../assets/profile-cutout.png";
 import HeroStats from "./HeroStats";
 
 const BADGES = [
-  { Icon: Code2, className: "-left-5 top-[10%]", duration: 4, delay: 0 },
-  { Icon: Braces, className: "-right-5 top-[30%]", duration: 4.6, delay: 0.5 },
-  { Icon: TerminalSquare, className: "-left-4 top-[50%]", duration: 5, delay: 1 },
+  { Icon: Code2, className: "-left-5 top-[10%]", duration: 3.5, delay: 0 },
+  { Icon: Braces, className: "-right-5 top-[30%]", duration: 4, delay: 0.5 },
+  { Icon: TerminalSquare, className: "-left-4 top-[50%]", duration: 4.5, delay: 1 },
 ];
 
 export default function HeroProfile() {

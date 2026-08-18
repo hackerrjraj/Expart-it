@@ -43,7 +43,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
           className="relative flex flex-col items-center gap-8 overflow-hidden rounded-3xl bg-gradient-to-r from-agency-accent via-agency-accent to-lime-200 px-8 py-10 sm:flex-row sm:justify-between sm:px-12"
         >
           <div className="flex items-center gap-6">
@@ -65,12 +65,12 @@ export default function Footer() {
             />
             <Link
               to="/#contact"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-agency-bg px-6 py-3.5 text-sm font-semibold text-white transition-transform duration-300 ease-agency-ease hover:-translate-y-0.5"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-agency-bg px-6 py-3.5 text-sm font-semibold text-white transition-transform duration-200 ease-agency-ease hover:-translate-y-0.5"
             >
               Get Started Free
               <ArrowUpRight
                 size={16}
-                className="transition-transform duration-300 ease-agency-ease group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="transition-transform duration-200 ease-agency-ease group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </Link>
           </div>
@@ -97,7 +97,7 @@ export default function Footer() {
               <button
                 type="submit"
                 aria-label="Subscribe"
-                className="flex shrink-0 items-center justify-center rounded-full bg-agency-accent px-4 text-agency-bg transition-colors duration-300 hover:bg-white"
+                className="flex shrink-0 items-center justify-center rounded-full bg-agency-accent px-4 text-agency-bg transition-colors duration-200 hover:bg-white"
               >
                 <Send size={16} />
               </button>
@@ -112,7 +112,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    className="text-sm text-white/60 transition-colors duration-300 hover:text-agency-accent"
+                    className="text-sm text-white/60 transition-colors duration-200 hover:text-agency-accent"
                   >
                     {link.label}
                   </Link>
@@ -129,7 +129,7 @@ export default function Footer() {
                 <li key={link}>
                   <Link
                     to="/#about"
-                    className="text-sm text-white/60 transition-colors duration-300 hover:text-agency-accent"
+                    className="text-sm text-white/60 transition-colors duration-200 hover:text-agency-accent"
                   >
                     {link}
                   </Link>
@@ -167,7 +167,7 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl bg-agency-accent text-agency-bg shadow-lg transition-transform duration-300 ease-agency-ease hover:-translate-y-[calc(50%+3px)]"
+            className="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl bg-agency-accent text-agency-bg shadow-lg transition-transform duration-200 ease-agency-ease hover:-translate-y-[calc(50%+3px)]"
           >
             <ArrowUp size={18} />
           </button>
@@ -181,7 +181,7 @@ export default function Footer() {
                 <a
                   key={link}
                   href="#"
-                  className="text-xs text-white/40 transition-colors duration-300 hover:text-white"
+                  className="text-xs text-white/40 transition-colors duration-200 hover:text-white"
                 >
                   {link}
                 </a>

@@ -47,7 +47,7 @@ function WaveRibbon({ colorClass }) {
           strokeDasharray="3 24"
           style={{ opacity: 0.45 }}
           animate={{ strokeDashoffset: [0, -270] }}
-          transition={{ duration: 16 + i * 5, ease: "linear", repeat: Infinity }}
+          transition={{ duration: 13.5 + i * 4.5, ease: "linear", repeat: Infinity }}
         />
       ))}
     </svg>
@@ -77,7 +77,7 @@ function DotMatrix({ colorClass, cols = 11, rows = 9, seed = 1 }) {
             fill="currentColor"
             animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.6, 1] }}
             transition={{
-              duration: 5 + ((r_hash(d.id) % 5)),
+              duration: 4.5 + ((r_hash(d.id) % 5)),
               ease: "easeInOut",
               repeat: Infinity,
               delay: (r_hash(d.id) % 7) * 0.4,

@@ -42,7 +42,7 @@ function PortfolioCard({ item, index }) {
       ref={ref}
       style={{ opacity, scale, x, y, rotate }}
       whileHover={{ y: -6 }}
-      transition={{ duration: 0.3, ease: EASE }}
+      transition={{ duration: 0.25, ease: EASE }}
       className={`group flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-agency-surface p-6 ${SPAN_BY_INDEX[index % 4]}`}
     >
       <h3 className="font-display text-2xl font-bold leading-snug text-white">{item.title}</h3>
@@ -55,10 +55,10 @@ function PortfolioCard({ item, index }) {
         <img
           src={item.image}
           alt={item.title}
-          className="h-full w-full object-cover transition-transform duration-700 ease-agency-ease group-hover:scale-110"
+          className="h-full w-full object-cover transition-transform duration-500 ease-agency-ease group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        <span className="absolute bottom-4 right-4 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-agency-accent text-agency-bg opacity-0 shadow-lg transition-all duration-300 ease-agency-ease group-hover:translate-y-0 group-hover:opacity-100">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <span className="absolute bottom-4 right-4 flex h-11 w-11 translate-y-3 items-center justify-center rounded-full bg-agency-accent text-agency-bg opacity-0 shadow-lg transition-all duration-200 ease-agency-ease group-hover:translate-y-0 group-hover:opacity-100">
           <ArrowUpRight size={18} />
         </span>
 
@@ -82,7 +82,7 @@ export default function Portfolio() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, ease: EASE }}
+          transition={{ duration: 0.45, ease: EASE }}
           className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end"
         >
           <div>
@@ -97,7 +97,7 @@ export default function Portfolio() {
 
           <a
             href="#portfolio"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-agency-accent2 px-6 py-3.5 text-sm font-semibold text-white transition-transform duration-300 ease-agency-ease hover:-translate-y-0.5"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-agency-accent2 px-6 py-3.5 text-sm font-semibold text-white transition-transform duration-200 ease-agency-ease hover:-translate-y-0.5"
           >
             See All Projects
             <ArrowUpRight size={16} />

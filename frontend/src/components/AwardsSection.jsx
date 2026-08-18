@@ -53,8 +53,8 @@ function LaurelBadge({ hovered = false }) {
       <motion.div
         animate={reducedMotion ? { scale: hovered ? 1.12 : 1 } : { rotate: 360, scale: hovered ? 1.12 : 1 }}
         transition={{
-          rotate: reducedMotion ? undefined : { duration: hovered ? 7 : 38, repeat: Infinity, ease: "linear" },
-          scale: { duration: 0.3, ease: EASE },
+          rotate: reducedMotion ? undefined : { duration: hovered ? 7 : 32.5, repeat: Infinity, ease: "linear" },
+          scale: { duration: 0.25, ease: EASE },
         }}
         className="h-14 w-14"
       >
@@ -66,7 +66,7 @@ function LaurelBadge({ hovered = false }) {
       </motion.div>
       <motion.div
         animate={{ scale: hovered ? 1.15 : 1 }}
-        transition={{ duration: 0.3, ease: EASE }}
+        transition={{ duration: 0.25, ease: EASE }}
         className="absolute"
       >
         <Play className="h-3.5 w-3.5 fill-white text-white" />
@@ -91,7 +91,7 @@ function StatusPill({ status }) {
         <motion.span
           className="absolute inset-0 rounded-full bg-agency-accent/25"
           animate={{ opacity: [0.6, 0, 0.6], scale: [1, 1.3, 1] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
       )}
       <span className="relative">{status}</span>
@@ -101,19 +101,19 @@ function StatusPill({ status }) {
 
 const badgeVariants = {
   hidden: { opacity: 0, scale: 0.4, rotate: -30 },
-  show: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.55, ease: EASE } },
+  show: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 0.4, ease: EASE } },
 };
 const slideLeftVariants = {
   hidden: { opacity: 0, x: -18 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: EASE } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: EASE } },
 };
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 12 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE } },
 };
 const slideRightVariants = {
   hidden: { opacity: 0, x: 18 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: EASE } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: EASE } },
 };
 
 const DEFAULT_AWARDS = [
@@ -222,7 +222,7 @@ export default function AwardsSection({
               opacity: hoveredAward ? 1 : 0,
               scale: hoveredAward ? 1 : 0.92,
             }}
-            transition={{ duration: 0.35, ease: EASE }}
+            transition={{ duration: 0.25, ease: EASE }}
             className="relative -mt-[130%] h-[220px] w-[300px] -translate-x-1/2 overflow-hidden rounded-2xl shadow-2xl shadow-black/50 ring-1 ring-white/10"
           >
             <AnimatePresence>
@@ -234,7 +234,7 @@ export default function AwardsSection({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.25 }}
                   className="absolute inset-0 h-full w-full object-cover"
                 />
               )}
@@ -248,7 +248,7 @@ export default function AwardsSection({
           initial={reducedMotion ? false : { opacity: 0, y: 24 }}
           whileInView={reducedMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: EASE }}
+          transition={{ duration: 0.6, ease: EASE }}
         >
           <span className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-agency-accent">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-agency-accent" />
@@ -274,9 +274,9 @@ export default function AwardsSection({
                 initial={reducedMotion ? undefined : "hidden"}
                 whileInView={reducedMotion ? undefined : "show"}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ staggerChildren: 0.09, delayChildren: i * 0.1 }}
+                transition={{ staggerChildren: 0.05, delayChildren: i * 0.075 }}
                 onMouseEnter={() => canHover && setHoveredId(rowId)}
-                className="group grid grid-cols-[1fr_28px] items-center gap-4 border-t border-white/10 py-7 transition-colors duration-200 hover:bg-white/[0.03] sm:grid-cols-[220px_140px_1fr_28px] sm:gap-8"
+                className="group grid grid-cols-[1fr_28px] items-center gap-4 border-t border-white/10 py-7 transition-colors duration-150 hover:bg-white/[0.03] sm:grid-cols-[220px_140px_1fr_28px] sm:gap-8"
               >
                 <div className="flex min-w-0 items-center gap-4">
                   <motion.div variants={badgeVariants}>
@@ -295,14 +295,14 @@ export default function AwardsSection({
                 </motion.div>
 
                 <motion.div variants={fadeUpVariants} className="min-w-0">
-                  <p className="font-semibold text-white/90 transition-colors duration-200 group-hover:text-white">
+                  <p className="font-semibold text-white/90 transition-colors duration-150 group-hover:text-white">
                     {award.title}
                   </p>
                   <StatusPill status={award.status} />
                 </motion.div>
 
                 <motion.div variants={slideRightVariants} className="justify-self-end">
-                  <ArrowRight className="h-5 w-5 shrink-0 text-white/60 transition-transform duration-200 ease-agency-ease group-hover:translate-x-1.5 group-hover:-rotate-12 group-hover:text-white" />
+                  <ArrowRight className="h-5 w-5 shrink-0 text-white/60 transition-transform duration-150 ease-agency-ease group-hover:translate-x-1.5 group-hover:-rotate-12 group-hover:text-white" />
                 </motion.div>
               </motion.div>
             );

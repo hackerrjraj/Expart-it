@@ -60,7 +60,7 @@ export default function About({
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: EASE }}
+          transition={{ duration: 0.6, ease: EASE }}
           className="relative"
         >
           <div className="overflow-hidden rounded-3xl">
@@ -85,7 +85,7 @@ export default function About({
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
+          transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
         >
           <span className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-agency-accent">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-agency-accent" />
@@ -107,7 +107,7 @@ export default function About({
 
           <a
             href={ctaHref}
-            className="mt-8 inline-flex items-center rounded-full bg-agency-accent2 px-7 py-3.5 text-sm font-semibold text-white transition-transform duration-300 ease-agency-ease hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(124,92,255,0.35)]"
+            className="mt-8 inline-flex items-center rounded-full bg-agency-accent2 px-7 py-3.5 text-sm font-semibold text-white transition-transform duration-200 ease-agency-ease hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(124,92,255,0.35)]"
           >
             {ctaLabel}
           </a>

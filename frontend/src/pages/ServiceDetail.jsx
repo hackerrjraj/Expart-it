@@ -7,7 +7,7 @@ const EASE = [0.16, 1, 0.3, 1];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
 };
 
 const stagger = {
@@ -75,12 +75,12 @@ export default function ServiceDetail() {
           <motion.div variants={fadeUp} className="mt-9">
             <a
               href="/#contact"
-              className="group inline-flex items-center gap-3 rounded-full bg-agency-accent px-7 py-3.5 text-sm font-semibold text-agency-bg transition-transform duration-300 ease-agency-ease hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(199,255,61,0.35)]"
+              className="group inline-flex items-center gap-3 rounded-full bg-agency-accent px-7 py-3.5 text-sm font-semibold text-agency-bg transition-transform duration-200 ease-agency-ease hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(199,255,61,0.35)]"
             >
               Get Started
               <ArrowUpRight
                 size={18}
-                className="transition-transform duration-300 ease-agency-ease group-hover:translate-x-1 group-hover:-translate-y-1"
+                className="transition-transform duration-200 ease-agency-ease group-hover:translate-x-1 group-hover:-translate-y-1"
               />
             </a>
           </motion.div>
@@ -95,7 +95,7 @@ export default function ServiceDetail() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, ease: EASE }}
+            transition={{ duration: 0.45, ease: EASE }}
             className="flex items-center gap-4"
           >
             <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-agency-orange text-white shadow-lg">
@@ -132,7 +132,7 @@ export default function ServiceDetail() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, ease: EASE }}
+            transition={{ duration: 0.45, ease: EASE }}
             className="font-display text-2xl font-bold text-white sm:text-3xl"
           >
             Explore Other Services
@@ -151,7 +151,7 @@ export default function ServiceDetail() {
                 <motion.div key={other.id} variants={fadeUp}>
                   <Link
                     to={`/services/${other.id}`}
-                    className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/10 bg-agency-surface p-5 transition-colors duration-300 hover:bg-[#191c24]"
+                    className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-white/10 bg-agency-surface p-5 transition-colors duration-200 hover:bg-[#191c24]"
                   >
                     <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-agency-orange/15 text-agency-orange">
                       <OtherIcon size={20} />
@@ -159,7 +159,7 @@ export default function ServiceDetail() {
                     <span className="font-display text-base font-semibold text-white">{other.title}</span>
                     <ArrowRight
                       size={16}
-                      className="ml-auto shrink-0 text-white/40 transition-transform duration-300 ease-agency-ease group-hover:translate-x-1 group-hover:text-agency-orange"
+                      className="ml-auto shrink-0 text-white/40 transition-transform duration-200 ease-agency-ease group-hover:translate-x-1 group-hover:text-agency-orange"
                     />
                   </Link>
                 </motion.div>

@@ -62,7 +62,7 @@ function useIdleHoverMotion(groupRef, { idleSpeed = 0.25, hoverBoost = 1.6, bobA
 function ChromeSpring({ reducedMotion }) {
   const groupRef = useRef(null);
   const handlers = useIdleHoverMotion(groupRef, {
-    idleSpeed: 0.3,
+    idleSpeed: 0.35,
     hoverBoost: 1.8,
     bobAmplitude: 0.05,
     tiltAmount: 0.22,

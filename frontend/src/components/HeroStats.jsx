@@ -7,7 +7,7 @@ const STATS = [
   { from: 0, to: 195, suffix: "+", label: "Happy Clients" },
 ];
 
-function CountUp({ from, to, suffix, delay = 0, duration = 2 }) {
+function CountUp({ from, to, suffix, delay = 0, duration = 1.5 }) {
   const count = useMotionValue(from);
   const display = useTransform(count, (v) => `${Math.round(v)}${suffix}`);
 
@@ -26,7 +26,7 @@ export default function HeroStats({ className = "" }) {
     >
       {STATS.map((stat, i) => (
         <div key={stat.label} className="text-center">
-          <CountUp from={stat.from} to={stat.to} suffix={stat.suffix} delay={i * 0.2} />
+          <CountUp from={stat.from} to={stat.to} suffix={stat.suffix} delay={i * 0.15} />
           <p className="mt-1 text-[10px] leading-tight text-white/60">{stat.label}</p>
         </div>
       ))}

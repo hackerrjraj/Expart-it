@@ -51,7 +51,7 @@ export default function AnimatedIcon({ src, alt = "", className = "", dropShadow
       {/* idle layer: continuous slow bob + sway, never perfectly still */}
       <motion.div
         animate={reducedMotion ? {} : { y: [0, -14, 0], rotate: [0, 3, -3, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
         className="h-full w-full"
       >
         {/* hover layer: tilts + nudges toward the cursor, spring-damped release */}

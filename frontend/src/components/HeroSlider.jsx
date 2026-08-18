@@ -13,21 +13,21 @@ const bgVariants = {
   center: {
     opacity: 1,
     scale: 1,
-    transition: { opacity: { duration: 1.1, ease: EASE }, scale: { duration: 6, ease: "linear" } },
+    transition: { opacity: { duration: 0.85, ease: EASE }, scale: { duration: 6, ease: "linear" } },
   },
-  exit: { opacity: 0, scale: 1.05, transition: { duration: 0.9, ease: EASE } },
+  exit: { opacity: 0, scale: 1.05, transition: { duration: 0.7, ease: EASE } },
 };
 
 const textContainer = {
   enter: {},
-  center: { transition: { staggerChildren: 0.09, delayChildren: 0.25 } },
+  center: { transition: { staggerChildren: 0.05, delayChildren: 0.2 } },
   exit: {},
 };
 
 const textItem = {
   enter: { opacity: 0, y: 28 },
-  center: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
-  exit: { opacity: 0, y: -16, transition: { duration: 0.4, ease: EASE } },
+  center: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
+  exit: { opacity: 0, y: -16, transition: { duration: 0.3, ease: EASE } },
 };
 
 export default function HeroSlider() {
@@ -123,12 +123,12 @@ export default function HeroSlider() {
             <motion.div variants={textItem} className="mt-9">
               <Link
                 to={`/services/${active.id}`}
-                className="group inline-flex items-center gap-3 rounded-full bg-agency-accent px-7 py-3.5 text-sm font-semibold text-agency-bg transition-transform duration-300 ease-agency-ease hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(199,255,61,0.35)]"
+                className="group inline-flex items-center gap-3 rounded-full bg-agency-accent px-7 py-3.5 text-sm font-semibold text-agency-bg transition-transform duration-200 ease-agency-ease hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(199,255,61,0.35)]"
               >
                 {active.cta}
                 <ArrowUpRight
                   size={18}
-                  className="transition-transform duration-300 ease-agency-ease group-hover:translate-x-1 group-hover:-translate-y-1"
+                  className="transition-transform duration-200 ease-agency-ease group-hover:translate-x-1 group-hover:-translate-y-1"
                 />
               </Link>
             </motion.div>
@@ -147,7 +147,7 @@ export default function HeroSlider() {
               key={skill.id}
               aria-label={`Go to ${skill.title}`}
               onClick={() => goTo(i, i > index ? 1 : -1)}
-              className="group relative h-1.5 overflow-hidden rounded-full bg-white/20 transition-all duration-500 ease-agency-ease"
+              className="group relative h-1.5 overflow-hidden rounded-full bg-white/20 transition-all duration-300 ease-agency-ease"
               style={{ width: i === index ? 40 : 18 }}
             >
               {i === index && (
@@ -168,14 +168,14 @@ export default function HeroSlider() {
           <button
             aria-label="Previous slide"
             onClick={prev}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-300 ease-agency-ease hover:border-agency-accent hover:bg-agency-accent hover:text-agency-bg"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 ease-agency-ease hover:border-agency-accent hover:bg-agency-accent hover:text-agency-bg"
           >
             <ArrowLeft size={18} />
           </button>
           <button
             aria-label="Next slide"
             onClick={next}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-300 ease-agency-ease hover:border-agency-accent hover:bg-agency-accent hover:text-agency-bg"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 ease-agency-ease hover:border-agency-accent hover:bg-agency-accent hover:text-agency-bg"
           >
             <ArrowRight size={18} />
           </button>

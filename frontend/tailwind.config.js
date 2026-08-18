@@ -33,8 +33,8 @@ export default {
         },
       },
       animation: {
-        marquee: "marquee 80s linear infinite",
-        "marquee-reverse": "marquee-reverse 80s linear infinite",
+        marquee: "marquee 60s linear infinite",
+        "marquee-reverse": "marquee-reverse 60s linear infinite",
       },
     },
   },
