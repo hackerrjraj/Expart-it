@@ -13,6 +13,7 @@ export default {
           muted: "#8a8a94",
           orange: "#f7941d",
           orangeDark: "#e07d00",
+          cream: "#F5EFE6",
         },
       },
       fontFamily: {
