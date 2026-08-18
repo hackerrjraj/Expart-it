@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import SectionWaveArt from "./SectionWaveArt";
+import handRobot from "../assets/hand-robot.png";
+import handHuman from "../assets/hand-human.png";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -17,38 +19,35 @@ function usePrefersReducedMotion() {
   return reduced;
 }
 
-// PLACEHOLDER — swap with the real robot-hand/human-hand illustration asset
-const HAND_IMAGE = "https://picsum.photos/seed/expartit-cta-hands/900/900";
-
-// Renders the same image twice, each clipped to one half. On scroll into
-// view the top half drops in and the bottom half rises in, meeting in the
-// middle. Reduced-motion users just get a plain fade, no slide.
-function SplitImageReveal({ src, alt }) {
+// Robot hand drops in from the top, human hand rises from the bottom, their
+// reaching fingertips meeting near the center — a Creation-of-Adam nod.
+// Reduced-motion users just get a plain fade, no slide.
+function HandsReveal() {
   const reducedMotion = usePrefersReducedMotion();
 
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
-      <motion.div
+    <div className="relative h-56 w-full sm:h-80 lg:h-[26rem]">
+      <motion.img
+        src={handRobot}
+        alt=""
+        draggable={false}
         initial={reducedMotion ? { opacity: 0 } : { y: -60, opacity: 0 }}
         whileInView={reducedMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.9, ease: EASE }}
-        className="absolute inset-0"
-        style={{ clipPath: "inset(0 0 50% 0)" }}
-      >
-        <img src={src} alt={alt} className="h-full w-full object-cover" draggable={false} />
-      </motion.div>
+        className="absolute right-0 top-0 h-[58%] w-auto object-contain drop-shadow-2xl"
+      />
 
-      <motion.div
+      <motion.img
+        src={handHuman}
+        alt="Robotic and human hands reaching toward each other"
+        draggable={false}
         initial={reducedMotion ? { opacity: 0 } : { y: 60, opacity: 0 }}
         whileInView={reducedMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-        className="absolute inset-0"
-        style={{ clipPath: "inset(50% 0 0 0)" }}
-      >
-        <img src={src} alt="" className="h-full w-full object-cover" draggable={false} />
-      </motion.div>
+        className="absolute bottom-0 left-[8%] h-[68%] w-auto object-contain drop-shadow-2xl"
+      />
     </div>
   );
 }
@@ -75,7 +74,7 @@ export default function CtaBanner() {
             </div>
 
             <div className="w-full md:w-[45%]">
-              <SplitImageReveal src={HAND_IMAGE} alt="Robotic and human hands reaching toward each other" />
+              <HandsReveal />
             </div>
           </div>
         </div>
