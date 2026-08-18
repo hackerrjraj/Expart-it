@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
+import SectionWaveArt from "./SectionWaveArt";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -75,6 +76,8 @@ function PortfolioCard({ item, index }) {
 export default function Portfolio() {
   return (
     <section id="portfolio" className="relative overflow-hidden bg-agency-bg py-24">
+      <SectionWaveArt tone="violet" flip />
+
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(124,92,255,0.06),transparent_45%)]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">

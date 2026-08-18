@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Plus, Sparkle } from "lucide-react";
 import { servicesData } from "../data/servicesData";
+import SectionWaveArt from "./SectionWaveArt";
 
 const EASE = [0.16, 1, 0.3, 1];
 const MotionLink = motion(Link);
@@ -263,6 +264,8 @@ export default function Services() {
       id="services"
       className="relative overflow-hidden bg-gradient-to-br from-[#0c0e13] via-[#0a0c14] to-[#0d1018] py-28"
     >
+      <SectionWaveArt tone="blue" />
+
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(247,148,29,0.10),transparent_45%),radial-gradient(circle_at_85%_80%,rgba(124,92,255,0.10),transparent_45%)]" />
       <div className="pointer-events-none absolute inset-0">
         <ServiceBackgroundArt />
