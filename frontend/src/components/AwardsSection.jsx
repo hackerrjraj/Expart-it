@@ -276,18 +276,24 @@ export default function AwardsSection({
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ staggerChildren: 0.05, delayChildren: i * 0.075 }}
                 onMouseEnter={() => canHover && setHoveredId(rowId)}
-                className="group grid grid-cols-[1fr_28px] items-center gap-4 border-t border-white/10 py-7 transition-colors duration-150 hover:bg-white/[0.03] sm:grid-cols-[220px_140px_1fr_28px] sm:gap-8"
+                className="group flex flex-col gap-3 border-t border-white/10 py-7 transition-colors duration-150 hover:bg-white/[0.03] sm:grid sm:grid-cols-[220px_140px_1fr_28px] sm:items-center sm:gap-8"
               >
-                <div className="flex min-w-0 items-center gap-4">
-                  <motion.div variants={badgeVariants}>
-                    <LaurelBadge hovered={isRowHovered} />
+                <div className="flex min-w-0 items-center justify-between gap-4 sm:contents">
+                  <div className="flex min-w-0 flex-1 flex-wrap items-center gap-4">
+                    <motion.div variants={badgeVariants}>
+                      <LaurelBadge hovered={isRowHovered} />
+                    </motion.div>
+                    <motion.span
+                      variants={slideLeftVariants}
+                      className="whitespace-pre-line text-lg font-bold leading-snug text-white sm:text-xl"
+                    >
+                      {award.name}
+                    </motion.span>
+                  </div>
+
+                  <motion.div variants={slideRightVariants} className="shrink-0 sm:hidden">
+                    <ArrowRight className="h-5 w-5 shrink-0 text-white/60 transition-transform duration-150 ease-agency-ease group-hover:translate-x-1.5 group-hover:-rotate-12 group-hover:text-white" />
                   </motion.div>
-                  <motion.span
-                    variants={slideLeftVariants}
-                    className="whitespace-pre-line text-lg font-bold leading-snug text-white sm:text-xl"
-                  >
-                    {award.name}
-                  </motion.span>
                 </div>
 
                 <motion.div variants={fadeUpVariants} className="hidden text-sm text-white/50 sm:block">
@@ -301,7 +307,7 @@ export default function AwardsSection({
                   <StatusPill status={award.status} />
                 </motion.div>
 
-                <motion.div variants={slideRightVariants} className="justify-self-end">
+                <motion.div variants={slideRightVariants} className="hidden sm:block sm:justify-self-end">
                   <ArrowRight className="h-5 w-5 shrink-0 text-white/60 transition-transform duration-150 ease-agency-ease group-hover:translate-x-1.5 group-hover:-rotate-12 group-hover:text-white" />
                 </motion.div>
               </motion.div>
