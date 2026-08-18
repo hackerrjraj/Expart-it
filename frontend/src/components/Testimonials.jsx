@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { testimonialsData } from "../data/testimonialsData";
@@ -8,6 +8,7 @@ const ChromeSpringCanvas = lazy(() =>
 );
 
 const EASE = [0.16, 1, 0.3, 1];
+const AUTOPLAY_MS = 6000;
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(
@@ -25,12 +26,20 @@ function usePrefersReducedMotion() {
 export default function Testimonials({ testimonials = testimonialsData }) {
   const reducedMotion = usePrefersReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef(null);
   const total = testimonials.length;
   const active = testimonials[activeIndex];
   const hasMultiple = total > 1;
 
   const next = () => setActiveIndex((i) => (i + 1) % total);
   const prev = () => setActiveIndex((i) => (i - 1 + total) % total);
+
+  useEffect(() => {
+    if (isPaused || !hasMultiple || reducedMotion) return;
+    timerRef.current = setTimeout(next, AUTOPLAY_MS);
+    return () => clearTimeout(timerRef.current);
+  }, [activeIndex, isPaused, hasMultiple, reducedMotion]);
 
   return (
     <section className="relative overflow-hidden bg-agency-cream pb-20">
@@ -66,7 +75,11 @@ export default function Testimonials({ testimonials = testimonialsData }) {
             </div>
 
             {/* right column: testimonial carousel card */}
-            <div className="relative z-10 rounded-2xl bg-gray-50 p-6 shadow-md">
+            <div
+              className="relative z-10 rounded-2xl bg-gray-50 p-6 shadow-md"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active.id}
