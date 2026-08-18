@@ -25,7 +25,13 @@ function wavePath(offset, ampMul) {
 
 function WaveRibbon({ colorClass }) {
   return (
-    <svg viewBox="0 0 600 500" className={`h-full w-full ${colorClass}`} fill="none" stroke="currentColor">
+    <svg
+      viewBox="0 0 600 500"
+      preserveAspectRatio="none"
+      className={`h-full w-full ${colorClass}`}
+      fill="none"
+      stroke="currentColor"
+    >
       {LINE_OFFSETS.map((offset, i) => {
         const distFromCenter = Math.abs(offset) / 175;
         const strokeOpacity = Math.max(0.22 - distFromCenter * 0.17, 0.03);
